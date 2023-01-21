@@ -59,6 +59,7 @@ setInterval(checkProducers, 1000);
 
 let producer1 = {
     productName: "Chemex",
+    imgUrl: "https://i.imgur.com/sJbAwvh.png",
     productRate: 1,
     initialCost: 10,
     price: 10,
@@ -70,6 +71,7 @@ let producer1 = {
 
 let producer2 = {
     productName: "French Press",
+    imgUrl: "https://store.chemexcoffeemaker.com/media/catalog/product/c/m/cm-8a_1.png",
     productRate: 2,
     initialCost: 50,
     price: 50,
@@ -81,6 +83,7 @@ let producer2 = {
 
 let producer3 = {
     productName: "Mr. Coffee",
+    imgUrl: "https://store.chemexcoffeemaker.com/media/catalog/product/c/m/cm-8a_1.png",
     productRate: 5,
     initialCost: 100,
     price: 100,
@@ -92,6 +95,7 @@ let producer3 = {
 
 let producer4 = {
     productName: "Ten Cup Urn",
+    imgUrl: "https://store.chemexcoffeemaker.com/media/catalog/product/c/m/cm-8a_1.png",
     productRate: 10,
     initialCost: 500,
     price: 500,
@@ -103,6 +107,7 @@ let producer4 = {
 
 let producer5 = {
     productName: "Espresso Machine",
+    imgUrl: "https://store.chemexcoffeemaker.com/media/catalog/product/c/m/cm-8a_1.png",
     productRate: 20,
     initialCost: 1000,
     price: 1000,
@@ -114,6 +119,7 @@ let producer5 = {
 
 let producer6 = {
     productName: "Ten Gallon Urn",
+    imgUrl: "https://store.chemexcoffeemaker.com/media/catalog/product/c/m/cm-8a_1.png",
     productRate: 50,
     initialCost: 5000,
     price: 5000,
@@ -125,6 +131,7 @@ let producer6 = {
 
 let producer7 = {
     productName: "Coffeeshop",
+    imgUrl: "https://store.chemexcoffeemaker.com/media/catalog/product/c/m/cm-8a_1.png",
     productRate: 75,
     initialCost: 10000,
     price: 10000,
@@ -136,6 +143,7 @@ let producer7 = {
 
 let producer8 = {
     productName: "Coffee Factory",
+    imgUrl: "https://store.chemexcoffeemaker.com/media/catalog/product/c/m/cm-8a_1.png",
     productRate: 100,
     initialCost: 50000,
     price: 50000,
@@ -147,6 +155,7 @@ let producer8 = {
 
 let producer9 = {
     productName: "Coffee Fountain",
+    imgUrl: "https://store.chemexcoffeemaker.com/media/catalog/product/c/m/cm-8a_1.png",
     productRate: 200,
     initialCost: 100000,
     price: 100000,
@@ -158,6 +167,7 @@ let producer9 = {
 
 let producer10 = {
     productName: "Coffee River",
+    imgUrl: "https://store.chemexcoffeemaker.com/media/catalog/product/c/m/cm-8a_1.png",
     productRate: 500,
     initialCost: 500000,
     price: 500000,
@@ -169,6 +179,7 @@ let producer10 = {
 
 let producer11 = {
     productName: "Coffee Ocean",
+    imgUrl: "https://store.chemexcoffeemaker.com/media/catalog/product/c/m/cm-8a_1.png",
     productRate: 1000,
     initialCost: 1000000,
     price: 1000000,
@@ -178,7 +189,7 @@ let producer11 = {
     locked: true
 }
 
-let producerContainer = document.getElementsByClassName("column")[1];
+let producerContainer = document.getElementById('producer-container');
 
 function addProducer ( producerObj ) {  // TODO: switch to template literals
     producerObj.locked = false;
@@ -188,7 +199,25 @@ function addProducer ( producerObj ) {  // TODO: switch to template literals
     producerDiv.classList.add("column-container");
     producerDiv.classList.add("separated");
 
-    // Product name and buy button (left column)
+    // Product image and count (left column)
+    let imageContainer = document.createElement("div");
+    imageContainer.classList.add("producer-pic-container");
+
+    let productImage = document.createElement("img");
+    productImage.classList.add('producer-pic');
+    console.log(producerObj);
+    console.log(producerObj.imgUrl);
+    productImage.src = producerObj.imgUrl;
+    productImage.alt = producerObj.productName + " Product Image"
+    imageContainer.appendChild(productImage);
+
+    let productCount = document.createElement("div");
+    productCount.classList.add("producer-count");
+    imageContainer.appendChild(productCount);
+
+    producerDiv.appendChild(imageContainer);
+
+    // Product name and buy button (middle column)
     let nameBuyDiv = document.createElement("div");
     nameBuyDiv.classList.add("column");
 
