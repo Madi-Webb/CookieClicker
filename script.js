@@ -71,7 +71,7 @@ let producer1 = {
 
 let producer2 = {
     productName: "French Press",
-    imgUrl: "https://store.chemexcoffeemaker.com/media/catalog/product/c/m/cm-8a_1.png",
+    imgUrl: "https://cdn.shopify.com/s/files/1/0035/9372/products/bodum_8_cup_french_press_2048x2048_e1a16bc6-3eb6-488b-b895-1ab14760faa9.png?v=1654098435",
     productRate: 2,
     initialCost: 50,
     price: 50,
@@ -83,7 +83,7 @@ let producer2 = {
 
 let producer3 = {
     productName: "Mr. Coffee",
-    imgUrl: "https://store.chemexcoffeemaker.com/media/catalog/product/c/m/cm-8a_1.png",
+    imgUrl: "https://i.imgur.com/JcM8RuK.png",
     productRate: 5,
     initialCost: 100,
     price: 100,
@@ -95,7 +95,7 @@ let producer3 = {
 
 let producer4 = {
     productName: "Ten Cup Urn",
-    imgUrl: "https://store.chemexcoffeemaker.com/media/catalog/product/c/m/cm-8a_1.png",
+    imgUrl: "https://i.imgur.com/M9BIDQk.png",
     productRate: 10,
     initialCost: 500,
     price: 500,
@@ -107,7 +107,7 @@ let producer4 = {
 
 let producer5 = {
     productName: "Espresso Machine",
-    imgUrl: "https://store.chemexcoffeemaker.com/media/catalog/product/c/m/cm-8a_1.png",
+    imgUrl: "https://i.imgur.com/LKrTxCm.png",
     productRate: 20,
     initialCost: 1000,
     price: 1000,
@@ -119,7 +119,7 @@ let producer5 = {
 
 let producer6 = {
     productName: "Ten Gallon Urn",
-    imgUrl: "https://store.chemexcoffeemaker.com/media/catalog/product/c/m/cm-8a_1.png",
+    imgUrl: "https://i.imgur.com/72vo69S.png",
     productRate: 50,
     initialCost: 5000,
     price: 5000,
@@ -131,7 +131,7 @@ let producer6 = {
 
 let producer7 = {
     productName: "Coffeeshop",
-    imgUrl: "https://store.chemexcoffeemaker.com/media/catalog/product/c/m/cm-8a_1.png",
+    imgUrl: "https://i.imgur.com/E5IcFt1.png",
     productRate: 75,
     initialCost: 10000,
     price: 10000,
@@ -143,7 +143,7 @@ let producer7 = {
 
 let producer8 = {
     productName: "Coffee Factory",
-    imgUrl: "https://store.chemexcoffeemaker.com/media/catalog/product/c/m/cm-8a_1.png",
+    imgUrl: "https://i.imgur.com/n0OIMaJ.png",
     productRate: 100,
     initialCost: 50000,
     price: 50000,
@@ -155,7 +155,7 @@ let producer8 = {
 
 let producer9 = {
     productName: "Coffee Fountain",
-    imgUrl: "https://store.chemexcoffeemaker.com/media/catalog/product/c/m/cm-8a_1.png",
+    imgUrl: "https://i.imgur.com/aAsUjKs.png",
     productRate: 200,
     initialCost: 100000,
     price: 100000,
@@ -167,7 +167,7 @@ let producer9 = {
 
 let producer10 = {
     productName: "Coffee River",
-    imgUrl: "https://store.chemexcoffeemaker.com/media/catalog/product/c/m/cm-8a_1.png",
+    imgUrl: "https://i.imgur.com/HSyRKUt.png",
     productRate: 500,
     initialCost: 500000,
     price: 500000,
@@ -179,7 +179,7 @@ let producer10 = {
 
 let producer11 = {
     productName: "Coffee Ocean",
-    imgUrl: "https://store.chemexcoffeemaker.com/media/catalog/product/c/m/cm-8a_1.png",
+    imgUrl: "https://i.imgur.com/DD7AuAO.png",
     productRate: 1000,
     initialCost: 1000000,
     price: 1000000,
@@ -213,6 +213,7 @@ function addProducer ( producerObj ) {  // TODO: switch to template literals
 
     let productCount = document.createElement("div");
     productCount.classList.add("producer-count");
+    productCount.innerText = producerObj.quantityOwned;
     imageContainer.appendChild(productCount);
 
     producerDiv.appendChild(imageContainer);
@@ -237,14 +238,11 @@ function addProducer ( producerObj ) {  // TODO: switch to template literals
     productStatDiv.classList.add("column");
 
     let productRate = document.createElement("p");
-    let quantityOwned = document.createElement("p");
     let price = document.createElement("p");
     
-    quantityOwned.innerText = "Owned Quantity: " + producerObj.quantityOwned;
     price.innerText = "Product Cost: " + producerObj.initialCost + " coffee";
     productRate.innerText = "Production Rate: " + producerObj.productRate + " (coffee/sec)";
 
-    productStatDiv.appendChild(quantityOwned);
     productStatDiv.appendChild(price);
     productStatDiv.appendChild(productRate);
 
@@ -254,7 +252,7 @@ function addProducer ( producerObj ) {  // TODO: switch to template literals
 
     // Add buy button functionality 
     buyButton.addEventListener("click", function () {
-        producerPurchase( producerObj, quantityOwned, price )
+        producerPurchase( producerObj, productCount, price )
     });
 }
 
@@ -273,7 +271,7 @@ function producerPurchase( producerObj, quantityOwnedDisplay, priceDisplay ) {
         producerObj.costMultiplier += ( producerObj.quantityOwned / 10 );
         producerObj.price = Math.round(producerObj.initialCost * producerObj.costMultiplier);
         
-        quantityOwnedDisplay.innerText = "Owned Quantity: " + producerObj.quantityOwned;
+        quantityOwnedDisplay.innerText = producerObj.quantityOwned;
         priceDisplay.innerText = "Product Cost: " + producerObj.price + " coffee";
     }
 

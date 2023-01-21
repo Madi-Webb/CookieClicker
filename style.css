@@ -135,16 +135,15 @@ p {
 
 .producer-count {
     position: absolute;
-    top: 8px;
+    top: 18px;
     right: 16px;
     transform: translate(-50%, -50%);
     color: lime;
-    font-size: 24pt;
+    font-size: 14pt;
     font-weight: bold;
-    background-color: rgba(0, 0, 0, 0.5);
-    background-color: red;
-    padding: 10px;
-    border-radius: 10px;
+    background-color: maroon;
+    padding: 5px;
+    border-radius: 50%;
     cursor: pointer;
 }
 
