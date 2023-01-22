@@ -148,6 +148,10 @@ let producerContainer = document.getElementById('producer-container');
 
 function addProducer ( producer ) { 
 
+    // update producers unlocked count display
+    let producersUnlockedCount = document.getElementById("producers-unlocked");
+    producersUnlockedCount.innerText = `(${gameState.unlockedProducers.length + 1} / 11 unlocked)`;
+
     let producerDiv = document.createElement("div");
     producerDiv.classList.add("producer");
     producerDiv.classList.add("column-container");

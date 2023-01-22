@@ -43,6 +43,7 @@ p {
 .column-container {
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 .column {
@@ -59,6 +60,15 @@ p {
     align-items: center;
 }
 
+.instructions {
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 18pt;
+    border: 3px solid;
+    border-radius: 10px;
+    color: #1a659e;
+    background-color: rgba(0, 0, 0, 0.35);
+    padding: 10px;
+}
 
 #coffee-container {
     position: relative;
@@ -94,6 +104,7 @@ p {
     color: #1a659e;
     background-color: rgba(0, 0, 0, 0.35);
     padding: 10px;
+    margin-bottom: 30px;
 }
 
 
@@ -119,7 +130,7 @@ p {
     border-radius: 5px;
 }
 
-.producers-unlocked {
+#producers-unlocked {
     font-family: 'Nanum Pen Script', cursive;
     font-size: 18pt;
     margin-bottom: 10px;
@@ -132,7 +143,7 @@ p {
     background-image: url('https://i.imgur.com/mzTcwbs.jpg');
     color: white;
     padding: 20px;
-    min-width: 400pt;
+    min-width: 500pt;
 }
 
 .producer {
